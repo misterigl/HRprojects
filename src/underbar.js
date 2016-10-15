@@ -215,9 +215,9 @@
     // Not finished
     
     iterator = iterator || _.identity;
-    return _.every(collection, function (item) {
-      return iterator(item)
-    });
+    return _.reduce(collection, function(someFound, item){
+      return Boolean(iterator(item)) || someFound;
+    }, false)
   };
 
 
@@ -240,11 +240,27 @@
   //     bla: "even more stuff"
   //   }); // obj1 now contains key1, key2, key3 and bla
   _.extend = function(obj) {
+    var argumentsList = Array.prototype.slice.call(arguments, 1);
+    _.each(argumentsList, function (value) {
+      for (var key in value) {
+        obj[key] = value[key];
+      };
+    });
+    return obj;
   };
 
   // Like extend, but doesn't ever overwrite a key that already
   // exists in obj
   _.defaults = function(obj) {
+    var argumentsList = Array.prototype.slice.call(arguments, 1);
+    _.each(argumentsList, function (value) {
+      for (var key in value) {
+        if (!(key in obj)) {
+          obj[key] = value[key];
+        }
+      };
+    });
+    return obj;
   };
 
 

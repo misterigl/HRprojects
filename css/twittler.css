@@ -1,5 +1,17 @@
 @import url("main.css");
 
+.container {
+	display: flex;
+}
+
+.title {
+	width: 200px;
+}
+
+.body {
+	flex: 1;
+}
+
 a:hover {
   color: #0E1061;
   text-decoration: none;
@@ -17,4 +29,5 @@ a {
 
 .timestamp {
   font-size:12px;
+  float: right;
 }

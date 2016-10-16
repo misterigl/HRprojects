@@ -1,0 +1,20 @@
+@import url("main.css");
+
+a:hover {
+  color: #0E1061;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a {
+  color:#00aced;
+  cursor: pointer;
+}
+
+.message {
+  font-size:20px;
+}
+
+.timestamp {
+  font-size:12px;
+}

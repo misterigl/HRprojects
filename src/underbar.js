@@ -166,7 +166,7 @@
   _.reduce = function(collection, iterator, accumulator) {
     if (accumulator || accumulator === 0) {
       var result = accumulator;
-      var bunch = collection;
+      var bunch = collection.slice(0);
     } else if (collection.constructor === Array) {
       var result = collection[0];
       var bunch = collection.slice(1);
@@ -304,6 +304,17 @@
   // already computed the result for the given argument and return that value
   // instead if possible.
   _.memoize = function(func) {
+    window.rememResults = window.rememResults || {};
+    return function (){
+      var argumentsList = Array.prototype.slice.call(arguments);
+      var funcString = func.toString();
+      var argString = argumentsList.toString();
+      window.rememResults[funcString] = window.rememResults[funcString] || {};
+      if (!window.rememResults[funcString][argString]) {
+        window.rememResults[funcString][argString] = func.apply(null, arguments);
+      }
+      return window.rememResults[funcString][argString];
+    };
   };
 
   // Delays a function for the given number of milliseconds, and then calls

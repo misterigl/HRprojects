@@ -55,7 +55,7 @@
   // Note: _.each does not have a return value, but rather simply runs the
   // iterator function over each item in the input collection.
   _.each = function(collection, iterator) {
-    if (collection.constructor === Array) {
+    if (Array.isArray(collection)) {
       for (var i = 0; i < collection.length; i++) {
         iterator(collection[i], i, collection);
       }
@@ -164,19 +164,26 @@
   //   }); // should be 5, regardless of the iterator function passed in
   //          No accumulator is given so the first element is used.
   _.reduce = function(collection, iterator, accumulator) {
-    if (accumulator || accumulator === 0) {
-      var result = accumulator;
-      var bunch = collection.slice(0);
-    } else if (collection.constructor === Array) {
-      var result = collection[0];
-      var bunch = collection.slice(1);
+    if (Array.isArray(collection)) {
+      if (accumulator || accumulator === 0) {
+        var result = accumulator;
+        var bunch = collection.slice(0);
+      } else {
+        var result = collection[0];
+        var bunch = collection.slice(1);
+      }
     } else {
-      var result = collection[0];
-      var bunch = collection;
-      for (var key in bunch) {
+      if (accumulator || accumulator === 0) {
+        var result = accumulator;
+        var bunch = collection;
+      } else {
+        var bunch = collection;
+        for (var key in bunch) {
+          var result = bunch[key];
           delete bunch[key];
           break;
-      };
+        };
+      }
     };
     _.each(bunch, function(arg){
       result = iterator(result, arg);
@@ -327,13 +334,7 @@
     var argumentsList = Array.prototype.slice.call(arguments);
     argumentsList.shift();
     argumentsList.shift();
-    var currentTime = new Date();
-    var start = currentTime.getTime();
-    // while (currentTime.getTime() - start < wait) {
-    //   console.log("waiting", currentTime.getTime()); 
-    // } 
-    
-    func.apply(argumentsList);
+    setTimeout(func.apply(null, argumentsList), wait);
   };
 
 

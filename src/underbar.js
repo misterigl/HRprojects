@@ -209,22 +209,27 @@
     // TIP: Try re-using reduce() here.
     iterator = iterator || _.identity;
     return _.reduce(collection, function(allFound, item){
-      return Boolean(iterator(item)) && allFound;
+      return Boolean(iterator(item)) && Boolean(allFound);
 
-    }, true)
+    }, true);
   };
 
   // Determine whether any of the elements pass a truth test. If no iterator is
   // provided, provide a default one
   _.some = function(collection, iterator) {
     // TIP: There's a very clever way to re-use every() here.
-
-    // Not finished
     
     iterator = iterator || _.identity;
-    return _.reduce(collection, function(someFound, item){
-      return Boolean(iterator(item)) || someFound;
-    }, false)
+    return !Boolean(_.every(collection, function(item){
+      console.log(collection, item, Boolean(iterator(item)));
+      return !Boolean(iterator(item));
+    }));
+
+
+
+    // return _.reduce(collection, function(someFound, item){
+    //   return Boolean(iterator(item)) || Boolean(someFound);
+    // }, false);
   };
 
 

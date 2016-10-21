@@ -221,15 +221,8 @@
     
     iterator = iterator || _.identity;
     return !Boolean(_.every(collection, function(item){
-      console.log(collection, item, Boolean(iterator(item)));
       return !Boolean(iterator(item));
     }));
-
-
-
-    // return _.reduce(collection, function(someFound, item){
-    //   return Boolean(iterator(item)) || Boolean(someFound);
-    // }, false);
   };
 
 

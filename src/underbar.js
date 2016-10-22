@@ -332,7 +332,7 @@
     var argumentsList = Array.prototype.slice.call(arguments);
     argumentsList.shift();
     argumentsList.shift();
-    setTimeout(func.apply(null, argumentsList), wait);
+    setTimeout(function () {func.apply(null, argumentsList)}, wait);
   };
 
 

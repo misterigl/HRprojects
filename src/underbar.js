@@ -309,17 +309,37 @@
   // already computed the result for the given argument and return that value
   // instead if possible.
   _.memoize = function(func) {
-    window.rememResults = window.rememResults || {};
-    return function (){
-      var argumentsList = Array.prototype.slice.call(arguments);
+      var rememResults = {};
       var funcString = func.toString();
-      var argString = argumentsList.toString();
-      window.rememResults[funcString] = window.rememResults[funcString] || {};
-      if (!window.rememResults[funcString][argString]) {
-        window.rememResults[funcString][argString] = func.apply(null, arguments);
-      }
-      return window.rememResults[funcString][argString];
-    };
+
+      return function (){
+        if (arguments.length > 1) {
+          var argString = "[" + Array.prototype.slice.call(arguments).toString() + "]";
+        } else {
+          var argString = Array.prototype.slice.call(arguments).toString();
+        }
+        rememResults[funcString] = rememResults[funcString] || {};
+        if (!rememResults[funcString][argString]) {
+          rememResults[funcString][argString] = func.apply(null, arguments);
+        }
+        console.log(rememResults[funcString]);
+        return rememResults[funcString][argString];
+
+      };
+
+
+    // window.rememResults = window.rememResults || {};
+    // return function (){
+    //   var argumentsList = Array.prototype.slice.call(arguments);
+    //   var funcString = func.toString();
+    //   var argString = argumentsList.toString();
+    //   console.log("args:", argString, "\nfunc:", funcString, "\nresult:", window.rememResults);
+    //   window.rememResults[funcString] = window.rememResults[funcString] || {};
+    //   if (!window.rememResults[funcString][argString]) {
+    //     window.rememResults[funcString][argString] = func.apply(null, arguments);
+    //   }
+    //   return window.rememResults[funcString][argString];
+    // };
   };
 
   // Delays a function for the given number of milliseconds, and then calls

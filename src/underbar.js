@@ -165,7 +165,7 @@
   //          No accumulator is given so the first element is used.
   _.reduce = function(collection, iterator, accumulator) {
     if (Array.isArray(collection)) {
-      if (accumulator || accumulator === 0) {
+      if (accumulator !== undefined) {
         var result = accumulator;
         var bunch = collection.slice(0);
       } else {
@@ -173,7 +173,7 @@
         var bunch = collection.slice(1);
       }
     } else {
-      if (accumulator || accumulator === 0) {
+      if (accumulator !== undefined) {
         var result = accumulator;
         var bunch = collection;
       } else {
@@ -322,24 +322,8 @@
         if (!rememResults[funcString][argString]) {
           rememResults[funcString][argString] = func.apply(null, arguments);
         }
-        console.log(rememResults[funcString]);
         return rememResults[funcString][argString];
-
       };
-
-
-    // window.rememResults = window.rememResults || {};
-    // return function (){
-    //   var argumentsList = Array.prototype.slice.call(arguments);
-    //   var funcString = func.toString();
-    //   var argString = argumentsList.toString();
-    //   console.log("args:", argString, "\nfunc:", funcString, "\nresult:", window.rememResults);
-    //   window.rememResults[funcString] = window.rememResults[funcString] || {};
-    //   if (!window.rememResults[funcString][argString]) {
-    //     window.rememResults[funcString][argString] = func.apply(null, arguments);
-    //   }
-    //   return window.rememResults[funcString][argString];
-    // };
   };
 
   // Delays a function for the given number of milliseconds, and then calls

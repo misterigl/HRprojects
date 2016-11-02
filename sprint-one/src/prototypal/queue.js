@@ -11,3 +11,20 @@ var queueMethods = {};
 queueMethods.size = function() {
   return this.current;
 };
+
+queueMethods.enqueue = function(value) {
+  this[this.current] = value;
+  this.current++;
+};
+
+queueMethods.dequeue = function() {
+  var result = this[0];
+  for (var i = 0; i < this.current; i++) {
+    this[i] = this[i + 1];
+  }
+  if (this.current > 0) {
+    this.current--;
+  }
+  delete this[this.current];
+  return result;
+};

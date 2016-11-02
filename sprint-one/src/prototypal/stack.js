@@ -12,3 +12,17 @@ var stackMethods = {};
 stackMethods.size = function() {
   return this.current;
 };
+
+stackMethods.push = function(value) {
+  this[this.current] = value;
+  this.current++;
+};
+
+stackMethods.pop = function() {
+  var result = this[this.current - 1];
+  delete this[this.current - 1];
+  if (this.current > 0) {
+    this.current--;
+  }
+  return result;
+};

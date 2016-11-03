@@ -2,10 +2,17 @@
 
 var HashTable = function() {
   this._limit = 8;
+  this._minLimit = 8;
   this._storage = LimitedArray(this._limit);
+  this._size = 0;
 };
 
 HashTable.prototype.insert = function(k, v) {
+  this._size++;
+  if (this._size + 1 === this._limit) {
+    this._limit *= 2;
+  }
+
   var index = getIndexBelowMaxForKey(k, this._limit);
   if (!this._storage.hasOwnProperty(index)) { //Different hash
     this._storage[index] = [[k, v]];
@@ -31,6 +38,11 @@ HashTable.prototype.retrieve = function(k) {
 };
 
 HashTable.prototype.remove = function(k) {
+  this._size--;
+  if (this._size <= (this._limit / 2) && (this._limit / 2) >= this._minLimit) {
+    this._limit /= 2;
+  }
+
   var index = getIndexBelowMaxForKey(k, this._limit);
   var matches = this._storage[index];
   var keyMatch = this.findKey(k);
@@ -48,6 +60,9 @@ HashTable.prototype.hashExists = function(k) {
 HashTable.prototype.findKey = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var matches = this._storage[index];
+  if (matches === undefined) {
+    return -1;
+  }
   for (var i = 0; i < matches.length; i++) {
     if (matches[i][0] === k) {
       return i;

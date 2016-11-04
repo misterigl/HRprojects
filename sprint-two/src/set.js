@@ -6,8 +6,11 @@ var Set = function() {
 
 var setPrototype = {};
 
-setPrototype.add = function(item) {
-  this._storage[item] = true;
+setPrototype.add = function() {
+  var storage = this._storage;
+  Array.prototype.forEach.call(arguments, function(item) {
+    storage[item] = true;
+  });
 };
 
 setPrototype.contains = function(item) {
@@ -16,6 +19,10 @@ setPrototype.contains = function(item) {
 
 setPrototype.remove = function(item) {
   delete this._storage[item];
+};
+
+setPrototype.getSize = function() {
+  return Object.keys(this._storage).length;
 };
 
 /*

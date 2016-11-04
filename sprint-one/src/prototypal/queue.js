@@ -2,29 +2,29 @@ var Queue = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
   var queue = Object.create(queueMethods);
-  queue.current = 0;
+  queue._current = 0;
   return queue;
 };
 
 var queueMethods = {};
 
 queueMethods.size = function() {
-  return this.current;
+  return this._current;
 };
 
 queueMethods.enqueue = function(value) {
-  this[this.current] = value;
-  this.current++;
+  this[this._current] = value;
+  this._current++;
 };
 
 queueMethods.dequeue = function() {
   var result = this[0];
-  for (var i = 0; i < this.current; i++) {
+  for (var i = 0; i < this._current; i++) {
     this[i] = this[i + 1];
   }
-  if (this.current > 0) {
-    this.current--;
+  if (this._current > 0) {
+    this._current--;
   }
-  delete this[this.current];
+  delete this[this._current];
   return result;
 };

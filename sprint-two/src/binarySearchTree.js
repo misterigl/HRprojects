@@ -45,6 +45,20 @@ var BinarySearchTree = function(value) {
     }
   };
 
+  tree.getSize = function() {
+    var size = 0;
+    (function count(tree) {
+      size += 1;
+      if (tree.left) {
+        count(tree.left);
+      }
+      if (tree.right) {
+        count(tree.right);
+      }
+    })(this);
+    return size;
+  };
+
   return tree;
 };
 

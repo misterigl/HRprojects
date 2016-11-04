@@ -8,6 +8,7 @@ var LinkedList = function() {
 
     if (this.tail) {
       this.tail.next = node;
+      node.prev = this.tail;
     }
 
     this.tail = node;
@@ -20,6 +21,9 @@ var LinkedList = function() {
   list.removeHead = function() {
     var result = list.head.value;
     list.head = list.head.next;
+    if (list.head) {
+      list.head.prev = null;
+    }
     return result;
   };
 
@@ -44,6 +48,7 @@ var Node = function(value) {
 
   node.value = value;
   node.next = null;
+  node.prev = null;
 
   return node;
 };

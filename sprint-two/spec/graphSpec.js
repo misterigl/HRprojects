@@ -68,4 +68,34 @@ describe('graph', function() {
     expect(graph.hasEdge(3, 5)).to.equal(true);
     expect(graph.hasEdge(5, 5)).to.equal(true);
   });
+
+  it('should return number of nodes', function() {
+    graph.addNode(3);
+    graph.addNode(4);
+    graph.addNode(5);
+    graph.addNode(6);
+    expect(graph.nodeCount()).to.equal(4);
+    graph.removeNode(3);
+    expect(graph.nodeCount()).to.equal(3);
+  });
+
+  it('return number of edges', function() {
+    graph.addNode(1);
+    graph.addNode(2);
+    graph.addNode(3);
+    graph.addEdge(1, 2);
+    graph.addEdge(3, 2);
+    graph.addEdge(1, 3);
+    expect(graph.edgeCount()).to.equal(3);
+    graph.removeEdge(1, 2);
+    expect(graph.edgeCount()).to.equal(2);
+  });
+
+  it('should not add edges to non-existing nodes', function() {
+    graph.addNode(1);
+    expect(graph.addEdge.bind(graph, 1, 2)).to.throw(Error);
+    expect(graph.addEdge.bind(graph, 0, 10)).to.throw(Error);
+    graph.addNode(3);
+    expect(graph.addEdge.bind(graph, 1, 3)).to.not.throw(Error);
+  });
 });

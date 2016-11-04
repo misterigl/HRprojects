@@ -30,8 +30,14 @@ treeMethods.contains = function(target) {
   }, false);
 };
 
-
+treeMethods.getSize = function() {
+  var count = 1;
+  for (var i = 0; i < this.children.length; i++) {
+    count += this.children[i].getSize();
+  }
+  return count;
+};
 
 /*
  * Complexity: What is the time complexity of the above functions?
- */
+ */ 

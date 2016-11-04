@@ -59,4 +59,22 @@ describe('tree', function() {
     expect(parent.children.length).to.equal(0);
     expect(target.parent).to.be.null;
   });
+
+  it('should execute the callback on every node in the tree', function() {
+    tree.addChild(1);
+    tree.addChild(2);
+    tree.addChild(3);
+    tree.children[0].addChild(4);
+    tree.children[1].addChild(5);
+    tree.children[2].addChild(6);
+    tree.children[0].children[0].addChild(7);
+    var total = 0;
+    var sum = function() {
+      if (this.value !== null) {
+        total += this.value;
+      }
+    };
+    tree.traverse(sum);
+    expect(total).to.equal(28);
+  });
 });

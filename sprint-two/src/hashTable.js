@@ -73,6 +73,9 @@ HashTable.prototype.resize = function() {
   }
 };
 
+HashTable.prototype.getSize = function() {
+  return this._size;
+};
 /*
  * Complexity: What is the time complexity of the above functions?
  */

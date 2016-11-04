@@ -23,17 +23,16 @@ var BinarySearchTree = function(value) {
   };
 
   tree.contains = function(value) {
-    if (this.value === value) {
-      return true;
-    } else if (this.left !== null && this.right !== null) {
-      return this.left.contains(value) || this.right.contains(value);
-    } else if (this.left !== null) {
-      return this.left.contains(value);
-    } else if (this.right !== null) {
-      return this.right.contains(value);
-    } else {
+    return (function search(target) {
+      if (this.value === value) {
+        return true;
+      } else if (this.left !== null && search.call(tree.left, value)) {
+        return true;
+      } else if (this.right !== null && search.call(tree.right, value)) {
+        return true;
+      }
       return false;
-    }
+    })(value);
   };
 
   tree.depthFirstLog = function(cb) {

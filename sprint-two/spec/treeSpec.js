@@ -41,4 +41,11 @@ describe('tree', function() {
     expect(tree.contains(8)).to.equal(true);
   });
 
+  it('should return size of tree', function() {
+    tree.addChild(1);
+    tree.addChild(2);
+    tree.addChild(3);
+    tree.addChild(4);
+    expect(tree.getSize()).to.equal(5);
+  }); 
 });

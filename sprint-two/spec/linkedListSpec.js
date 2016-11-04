@@ -51,5 +51,20 @@ describe('linkedList', function() {
     expect(linkedList.contains(4)).to.equal(false);
   });
 
+  it('should be able to refer to previous nodes by reference on current node', function() {
+    linkedList.addToTail(0);
+    var node = linkedList.tail;
+    linkedList.addToTail(2);
+    expect(linkedList.tail.prev).to.eql(node);
+  });
+
+  it('should remove reference to previous head on removeHead', function() {
+    linkedList.addToTail(6);
+    linkedList.addToTail(2);
+    linkedList.addToTail(10);
+    linkedList.removeHead();
+    expect(linkedList.head.prev).to.eql(null);
+  });
+
   // add more tests here to test the functionality of linkedList
 });

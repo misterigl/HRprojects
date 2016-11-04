@@ -43,6 +43,12 @@ Graph.prototype.hasEdge = function(fromNode, toNode) {
 
 // Connects two nodes in a graph by adding an edge between them.
 Graph.prototype.addEdge = function(fromNode, toNode) {
+  if (this.nodes.indexOf(fromNode) === -1) {
+    throw new Error('Could not find node ' + fromNode);
+  }
+  if (this.nodes.indexOf(toNode) === -1) {
+    throw new Error('Could not find node ' + toNode);
+  }
   var edge = [fromNode, toNode];
   this.edges.push(edge);
 };
@@ -67,6 +73,13 @@ Graph.prototype.forEachNode = function(cb) {
   }
 };
 
+Graph.prototype.nodeCount = function() {
+  return this.nodes.length;
+};
+
+Graph.prototype.edgeCount = function() {
+  return this.edges.length;
+};
 /*
  * Complexity: What is the time complexity of the above functions?
  */

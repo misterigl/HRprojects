@@ -47,5 +47,16 @@ describe('tree', function() {
     tree.addChild(3);
     tree.addChild(4);
     expect(tree.getSize()).to.equal(5);
-  }); 
+  });
+
+  it('should remove tree from its parent in both directions', function() {
+    tree.addChild(1);
+    var parent = tree.children[0];
+    parent.addChild(2);
+    var target = parent.children[0];
+    target.addChild(3);
+    target.removeFromParent();
+    expect(parent.children.length).to.equal(0);
+    expect(target.parent).to.be.null;
+  });
 });

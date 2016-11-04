@@ -73,4 +73,11 @@ describe('hashTable', function() {
     hashTable.remove('Mr.');
     expect(hashTable._limit).to.equal(8);
   });
+
+  it('should return the size of the hashTable', function() {
+    hashTable.insert('three', 4);
+    hashTable.insert('cake', 'chocolate');
+    hashTable.insert('OS', 'Linux');
+    expect(hashTable.getSize()).to.equal(3);
+  });
 });

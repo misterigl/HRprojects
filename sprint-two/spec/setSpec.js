@@ -21,7 +21,10 @@ describe('set', function() {
   it('should remove values from a set', function() {
     set.add('Mel Gibson');
     set.remove('Mel Gibson');
+    set.add({});
+    set.remove({});
     expect(set.contains('Mel Gibson')).to.equal(false);
+    expect(set.contains({})).to.be.false;
   });
 
   it('should return the size of the set', function() {
@@ -53,5 +56,33 @@ describe('set', function() {
     expect(checkType({})).to.equal(({}).constructor.toString());
     expect(checkType(new Date())).to.equal(Date.toString());
     expect(checkType(new Error())).to.equal(Error.toString());
+  });
+
+  it('should store values of any type', function() {
+    set.add(9);
+    expect(set.contains(9)).to.be.true;
+    set.add('string');
+    expect(set.contains('string')).to.be.true;
+    set.add({});
+    expect(set.contains({})).to.be.true;
+    var newDate = new Date();
+    set.add(newDate);
+    expect(set.contains(newDate)).to.be.true;
+    set.add([]);
+    expect(set.contains([])).to.be.true;
+    set.add(alert);
+    expect(set.contains(alert)).to.be.true;
+    set.add(undefined);
+    expect(set.contains()).to.be.true;
+    set.add(true);
+    expect(set.contains(true)).to.be.true;
+    set.add([1, 2, 3]);
+    expect(set.contains([1, 2, 3])).to.be.true;
+    var newSet = Set();
+    newSet.add(1, 2, 3, 4, 5, true, false, undefined, null, [], {}, new Date);
+    set.add(newSet);
+    expect(set.contains(newSet)).to.be.true;
+    set.add(Math);
+    expect(set.contains(Math)).to.be.true;
   });
 });

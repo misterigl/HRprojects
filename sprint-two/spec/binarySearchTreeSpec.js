@@ -59,4 +59,20 @@ describe('binarySearchTree', function() {
     expect(map[4][0]).to.equal(6485);
   });
 
+  it('should log the values in breadth first order', function() {
+    var capturedLogs = [];
+    console.log = function(value) {
+      capturedLogs.push(value);
+    };
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(4);
+    binarySearchTree.insert(10);
+    binarySearchTree.insert(54);
+    binarySearchTree.insert(12312);
+    binarySearchTree.insert(6485);
+    binarySearchTree.insert(78352);
+    binarySearchTree.breadthFirstLog();
+    expect(capturedLogs).to.eql([5, 3, 10, 4, 54, 12312, 6485, 78352]);
+  });
+
 });

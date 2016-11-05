@@ -11,20 +11,41 @@ setPrototype.add = function() {
   var storage = this._storage;
 
   Array.prototype.forEach.call(arguments, function(item) {
-    storage[item] = true;
+    var key = checkType(item);
+    if (!storage.hasOwnProperty(key)) {
+      storage[key] = {};
+    }
+    storage[key][item] = true;
   });
 };
 
 setPrototype.contains = function(item) {
-  return !!this._storage[item];
+  var key = checkType(item);
+  var storage = this._storage;
+  if (!storage.hasOwnProperty(key)) {
+    storage[key] = {};
+  }
+  return !!this._storage[key][item];
 };
 
 setPrototype.remove = function(item) {
-  delete this._storage[item];
+  var key = checkType(item);
+  var storage = this._storage;
+  if (!storage.hasOwnProperty(key)) {
+    storage[key] = {};
+  }
+  delete this._storage[key][item];
 };
 
 setPrototype.getSize = function() {
-  return Object.keys(this._storage).length;
+  var storage = this._storage;
+  var keys = Object.keys(storage);
+  var size = 0;
+  keys.forEach(function(key) {
+    var keysOfType = Object.keys(storage[key]);
+    size += keysOfType.length;
+  });
+  return size;
 };
 
 var checkType = function(value) {

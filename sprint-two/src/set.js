@@ -4,10 +4,12 @@ var Set = function() {
   return set;
 };
 
+
 var setPrototype = {};
 
 setPrototype.add = function() {
   var storage = this._storage;
+
   Array.prototype.forEach.call(arguments, function(item) {
     storage[item] = true;
   });
@@ -23,6 +25,19 @@ setPrototype.remove = function(item) {
 
 setPrototype.getSize = function() {
   return Object.keys(this._storage).length;
+};
+
+var checkType = function(value) {
+  if (Array.isArray(value)) {
+    return 'array';
+  }
+  if (value === null) {
+    return 'null';
+  }
+  if (typeof value === 'object') {
+    return value.constructor.toString();
+  }
+  return typeof value;
 };
 
 /*

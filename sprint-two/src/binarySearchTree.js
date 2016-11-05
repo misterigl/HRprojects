@@ -45,6 +45,24 @@ var BinarySearchTree = function(value) {
     }
   };
 
+  tree.mapValues = function() {
+    var map = [];
+    var search = function(depth) {
+      if (map[depth] === undefined) {
+        map[depth] = [];
+      }
+      map[depth].push(this.value);
+      if (this.left) {
+        search.call(this.left, depth + 1);
+      }
+      if (this.right) {
+        search.call(this.right, depth + 1);
+      }
+    };
+    search.call(this, 0);
+    return map;
+  };
+
   tree.getSize = function() {
     var size = 1;
     if (this.left) {

@@ -46,16 +46,13 @@ var BinarySearchTree = function(value) {
   };
 
   tree.getSize = function() {
-    var size = 0;
-    (function count(tree) {
-      size += 1;
-      if (tree.left) {
-        count(tree.left);
-      }
-      if (tree.right) {
-        count(tree.right);
-      }
-    })(this);
+    var size = 1;
+    if (this.left) {
+      size += this.left.getSize();
+    }
+    if (this.right) {
+      size += this.right.getSize();
+    }
     return size;
   };
 

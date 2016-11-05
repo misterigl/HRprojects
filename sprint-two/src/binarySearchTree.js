@@ -45,6 +45,15 @@ var BinarySearchTree = function(value) {
     }
   };
 
+  tree.breadthFirstLog = function() {
+    var values = this.mapValues();
+    for (var i = 0; i < values.length; i++) {
+      for (var j = 0; j < values[i].length; j++) {
+        console.log(values[i][j]);
+      }
+    }
+  };
+
   tree.mapValues = function() {
     var map = [];
     var search = function(depth) {

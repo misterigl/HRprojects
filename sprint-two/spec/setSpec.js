@@ -37,4 +37,21 @@ describe('set', function() {
     expect(set.contains('another string')).to.be.true;
     expect(set.contains('third string')).to.be.true;
   });
+
+  it('should determine the type of any value', function() {
+    expect(checkType('string')).to.equal('string');
+    expect(checkType(0)).to.equal('number');
+    expect(checkType(NaN)).to.equal('number');
+    expect(checkType(Infinity)).to.equal('number');
+
+    expect(checkType([])).to.equal('array');
+    expect(checkType(null)).to.equal('null');
+    expect(checkType(undefined)).to.equal('undefined');
+    expect(checkType(true)).to.equal('boolean');
+    expect(checkType(false)).to.equal('boolean');
+
+    expect(checkType({})).to.equal(({}).constructor.toString());
+    expect(checkType(new Date())).to.equal(Date.toString());
+    expect(checkType(new Error())).to.equal(Error.toString());
+  });
 });

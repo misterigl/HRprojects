@@ -44,4 +44,19 @@ describe('binarySearchTree', function() {
     binarySearchTree.insert(10);
     expect(binarySearchTree.getSize()).to.equal(5);
   });
+
+  it('should map the values of children at each generation', function() {
+    binarySearchTree.insert(3);
+    binarySearchTree.insert(4);
+    binarySearchTree.insert(10);
+    binarySearchTree.insert(54);
+    binarySearchTree.insert(12312);
+    binarySearchTree.insert(6485);
+    binarySearchTree.insert(78352);
+    var map = binarySearchTree.mapValues();
+    expect(map[0][0]).to.equal(5);
+    expect(map[2][1]).to.equal(54);
+    expect(map[4][0]).to.equal(6485);
+  });
+
 });

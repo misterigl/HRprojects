@@ -4,6 +4,7 @@ var makeBlinkyDancer = class extends makeDancer {
   constructor(top, left, timeBetweenSteps) {
     super(top, left, timeBetweenSteps);
     this.oldStep = super.step;
+    this.currentColor = 0;
   }
   // var blinkyDancer = makeDancer(top, left, timeBetweenSteps);
 
@@ -25,8 +26,20 @@ var makeBlinkyDancer = class extends makeDancer {
   // }
 
   step() {
+  
     this.$node.toggle();
+    this.toggleColor();
     super.step();
+
+  }
+
+  toggleColor() {
+    var colors = ['red', 'blue', 'green', 'yellow', 'orange'];
+    this.currentColor = (this.currentColor + 1) % colors.length;
+    // var colorSettings = {
+    //   border: 10px solid blue
+    // };
+    this.$node.css("border", "10px solid " + colors[this.currentColor]);
   }
 };
 

@@ -28,6 +28,7 @@ var makeDancer = class {
     var styleSettings = {
       top: top,
       left: left
+
     };
     this.$node.css(styleSettings);
   }

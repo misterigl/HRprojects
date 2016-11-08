@@ -29,5 +29,14 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
   });
+
+  $('.actionButton').on('click', function(event) {
+    var actionButtonName = $(this).data('action-button-name');
+
+    var actionFunction = window[actionButtonName];
+    // we only have one action button for now, so assume actionFunction got bound to Lineup
+    actionFunction(dancers);
+    
+  });
 });
 

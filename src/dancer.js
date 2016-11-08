@@ -7,8 +7,9 @@ var makeDancer = class {
   // use jQuery to create an HTML <span> tag
     this.$node = $('<span class="dancer"></span>');
     this.timeBetweenSteps = timeBetweenSteps;
-    this.step();
     this.setPosition(top, left);
+    this.step();
+    this.runOnce = false;
   }
   setPosition (top, left) {
     // Use css top and left properties to position our <span> tag
@@ -28,8 +29,12 @@ var makeDancer = class {
     // ES6 Implementation using ES5's .bind function
     // setTimeout(this.step.bind(this), this.timeBetweenSteps);
     // ES6 Fat Arrow Notation
+   
+    // if (this.runOnce) {
     setTimeout(() => { this.step(); }, this.timeBetweenSteps);
-
+    // } else {
+    //   this.runOnce = true;
+    // }
   }
 
 

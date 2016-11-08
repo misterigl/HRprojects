@@ -3,7 +3,6 @@
 var makeBlinkyDancer = class extends makeDancer {
   constructor(top, left, timeBetweenSteps) {
     super(top, left, timeBetweenSteps);
-    this.oldStep = super.step;
     this.currentColor = 0;
   }
   // var blinkyDancer = makeDancer(top, left, timeBetweenSteps);

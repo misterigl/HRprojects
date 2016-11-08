@@ -1,7 +1,6 @@
 var makeFaceDancer = class extends makeDancer {
   constructor(top, left, timeBetweenSteps) {
     super(top, left, timeBetweenSteps);
-    this.oldStep = super.step;
     this.$node.addClass('faceDancer');
   }
   

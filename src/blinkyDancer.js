@@ -38,7 +38,7 @@ var makeBlinkyDancer = class extends makeDancer {
     // var colorSettings = {
     //   border: 10px solid blue
     // };
-    this.$node.css("border", "10px solid " + colors[this.currentColor]);
+    this.$node.css('border', '10px solid' + colors[this.currentColor]);
   }
 };
 

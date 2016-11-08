@@ -28,6 +28,7 @@ $(document).ready(function() {
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
   });
 
   $('.actionButton').on('click', function(event) {
@@ -36,7 +37,7 @@ $(document).ready(function() {
     var actionFunction = window[actionButtonName];
     // we only have one action button for now, so assume actionFunction got bound to Lineup
     actionFunction(dancers);
-    
+
   });
 });
 

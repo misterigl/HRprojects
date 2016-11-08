@@ -24,12 +24,9 @@ var makeBlinkyDancer = class extends makeDancer {
   //   this.step;
   // }
 
-
-
   step() {
-    super.testFunction();
     this.$node.toggle();
-    super.step.call(this);
+    super.step();
   }
 };
 

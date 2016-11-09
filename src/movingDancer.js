@@ -16,7 +16,6 @@ var makeMovingDancer = class makeMovingDancer extends makeDancer {
     var currentPosition = super.getCurrentLocation();
   
     this.edgeBounce(currentPosition['top'] + this.vy, currentPosition['left'] + this.vx);
-
     super.setPosition(currentPosition['top'] + this.vy, currentPosition['left'] + this.vx);
   }
 

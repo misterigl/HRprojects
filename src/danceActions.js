@@ -16,5 +16,8 @@ var lineUp = function (dancers) {
 };
 
 var randomizePosition = function (dancers) {
-  // iterate through all dancers and position 
+  // iterate through all dancers and position them randomly 
 };
+
+
+

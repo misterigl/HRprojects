@@ -1,4 +1,4 @@
-var makeMovingDancer = class extends makeDancer {
+var makeMovingDancer = class makeMovingDancer extends makeDancer {
   constructor(top, left) {
     super(top, left, 10);
     this.vx = (Math.random() - 0.5) * 10; //x pixels per timeBetweenSteps
@@ -13,13 +13,11 @@ var makeMovingDancer = class extends makeDancer {
   }
 
   moverPosition() {
-    var currentPosition = this.$node.css(['top', 'left']);
+    var currentPosition = super.getCurrentLocation();
   
-    var currentTop = parseInt(currentPosition['top'], 10);
-    var currentLeft = parseInt(currentPosition['left'], 10);
-    this.edgeBounce(currentTop + this.vy, currentLeft + this.vx);
+    this.edgeBounce(currentPosition['top'] + this.vy, currentPosition['left'] + this.vx);
 
-    super.setPosition(currentTop + this.vy, currentLeft + this.vx);
+    super.setPosition(currentPosition['top'] + this.vy, currentPosition['left'] + this.vx);
   }
 
   edgeBounce(newY, newX) {

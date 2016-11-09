@@ -5,12 +5,12 @@ var makeFaceDancer = class extends makeDancer {
   }
   
 
-  step() {
-  
+  step() {  
     // this.$node.toggle();
     if (Math.random() * 1000 < 50) {
       this.$node.effect('shake');
     }
+    super.runAway();
     super.step();
 
   }

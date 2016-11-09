@@ -1,4 +1,4 @@
-// import makeDancer from './dancer' 
+// import makeDancer from "./dancer" 
 //var makeBlinkyDancer = function(top, left, timeBetweenSteps) {
 var makeBlinkyDancer = class extends makeDancer {
   constructor(top, left, timeBetweenSteps) {
@@ -28,6 +28,7 @@ var makeBlinkyDancer = class extends makeDancer {
   
     this.$node.toggle();
     this.toggleColor();
+    super.runAway();
     super.step();
 
   }
@@ -38,7 +39,7 @@ var makeBlinkyDancer = class extends makeDancer {
     // var colorSettings = {
     //   border: 10px solid blue
     // };
-    this.$node.css('border', '10px solid' + colors[this.currentColor]);
+    this.$node.css("border", "10px solid " + colors[this.currentColor]);
   }
 };
 

@@ -1,6 +1,7 @@
 $(document).ready(function() {
   window.dancers = [];
-
+  window.currentMousePos = { x: -1, y: -1 };
+  window.movingDancers = [];
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
      * buttons on dancefloor.html. You should only need to make one small change to it.
@@ -29,6 +30,9 @@ $(document).ready(function() {
     );
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
+    if (dancer instanceof window.makeMovingDancer) {
+      window.movingDancers.push(dancer);
+    }
   });
 
   $('.actionButton').on('click', function(event) {
@@ -39,5 +43,13 @@ $(document).ready(function() {
     actionFunction(dancers);
 
   });
+
+
+  $('body').mousemove(function(event) {
+    window.currentMousePos.x = event.pageX;
+    window.currentMousePos.y = event.pageY;
+  });
+
+
 });
 

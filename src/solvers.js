@@ -22,37 +22,54 @@ window.findNRooksSolution = function(n, all) {
   // var board = new Board(matrix);
   var board = new Board({n: n});
   var rows = board.rows();
-  var numRooks = 1;
+  var numRooks = 0;
 
   var rookPlacer = function(board) {
     // debugger;
     //go to each square in board ( 2x for loops)
     for (var i = 0; i < n; i++) {
       for (var j = 0; j < n; j++) {
-        console.log(numRooks, i, j);
+        console.log(countRooks(board), i, j);
       // if empty place rook there
         if (board.rows()[i][j] === 0) {
           board.togglePiece(i, j);
+          // numRooks++;
+          console.log('piece added at ', i, j);
         //check for conflicts
         //if conflict
           if (board.hasAnyRooksConflicts()) {
           //stop recursion
             board.togglePiece(i, j);
+            // numRooks--;
+            console.log('conflict, piece removed at ', i, j);
             continue;
           } else {
-            if (numRooks === n) {
-              solution = (board.rows());
-              solutions.push(board.rows());
-              console.log('solution found');
-              board = new Board({n: n});
+            if (countRooks(board) === n) {
+              solution = (Array.prototype.slice.call(board.rows()));
+              solutions.push(Array.prototype.slice.call(board.rows()));
+              console.log('solution found', board.rows());
+              // board.togglePiece(i, j);
+              // numRooks--;
             } else {
-              numRooks++;
+              console.log('passing board', board.rows());
               rookPlacer(board);
+
             }
           }
         }
       }
     }
+  };
+
+  var countRooks = function(board) {
+    var rows = board.rows();
+    var count = 0;
+    for (var i = 0; i < rows.length; i++) {
+      for (var j = 0; j < rows[i].length; j++) {
+        count += rows[i][j];
+      }
+    }
+    return count;
   };
 
   rookPlacer(board);

@@ -2,6 +2,18 @@ describe('solvers', function() {
   window.displayBoard = function() {};
 
   describe('findNRooksSolution()', function() {
+    it('finds a valid solution for n of 2', function() {
+      var solutionBoards = new Board(findNRooksSolution(2));
+      var numPieces = _.reduce(solutionBoards.rows(), function(memo, row) {
+        return memo + _.reduce(row, function(memo, col) {
+          return memo + col;
+        }, 0);
+
+        expect(solutionBoards.get('n')).to.equal(2);
+        expect(numPieces).to.equal(2);
+        expect(solutionBoards.hasAnyRooksConflicts()).to.be.equal(false);
+      });
+    });
 
     it('finds a valid solution for n of 1-8', function() {
       _.range(1, 9).map(function(n) {

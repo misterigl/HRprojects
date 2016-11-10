@@ -18,7 +18,7 @@
 window.findNRooksSolution = function(n, all) {
   var board = new Board({n: n});
 
-  for(var i = 0; i < n; i++) {
+  for (var i = 0; i < n; i++) {
     board.togglePiece(i, i);
   }
 
@@ -28,34 +28,27 @@ window.findNRooksSolution = function(n, all) {
 // return the number of nxn chessboards that exist, with n rooks placed such that none of them can attack each other
 window.countNRooksSolutions = function(n) {
   
-  // var solution = [];
-  // var solutions = [];
-  // var matrix = Array(n).fill(Array(n).fill(0));
-  // var board = new Board(matrix);
   var board = new Board({n: n});
   var sols = 0;
   var solutions = [];
 
-  var rookPlacer = function(board) {
-    // debugger;
+  var rookPlacer = function(board, recI, recJ) {
     //go to each square in board ( 2x for loops)
-    for (var i = 0; i < n; i++) {
-      for(var j = 0; j < n; j++) {
+    for (var i = recI; i < n; i++) {
+      for (var j = 0; j < n; j++) {
         if (board.rows()[i][j] === 0) {
           board.togglePiece(i, j);
           var numRooks = countRooks(board);
           if (!board.hasAnyRooksConflicts()) {
-            if (numRooks !== n) {
-              rookPlacer(board);
+            if (numRooks < n) {
+              rookPlacer(board, i, j);
             } else {
-              debugger;
               sols++;
-              solutions.push(board.rows());
-              //!!
-              // board = new Board({n: n});
+              // console.log(board.rows()[0], board.rows()[1], board.rows()[2]);
+              // solutions.push(cloneBoard(board.rows()));
             }
           }
-          if(board.rows()[i][j] === 1) {
+          if (board.rows()[i][j] === 1) {
             board.togglePiece(i, j);
           }
         }
@@ -74,19 +67,21 @@ window.countNRooksSolutions = function(n) {
     return count;
   };
 
-  rookPlacer(board);
+  var cloneBoard = function(rows) {
+    if (_.isArray(rows)) {
+      return _.map(rows, cloneBoard);  
+    } else {
+      return rows;
+    }
+  };
+
+  rookPlacer(board, 0, 0);
   console.log(solutions);
     // if no conflict
       // if numRooks is equal to n
         // push board into solution array  
       //else call rookPlacer with board
 
-  // console.log('Single solution for ' + n + ' rooks:', JSON.stringify(solution));
-
-  // if (all) {
-  //   return solutions;
-  // }
-  // console.log(solutions);
   return sols;
 };
 

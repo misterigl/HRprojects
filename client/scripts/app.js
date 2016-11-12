@@ -1,11 +1,13 @@
-var app = {
-  server: 'https://api.parse.com/1/classes/messages',
+class App {
+  constructor() {
+    server: 'https://api.parse.com/1/classes/messages';
+  }
 
-  init: function() {
+  init() {
 
-  },
+  }
 
-  send: function(message) {
+  send(message) {
     $.ajax({
       url: app.server,
       type: 'POST',
@@ -18,9 +20,9 @@ var app = {
         console.error('chatterbox: Failed to send message', data);
       }
     });
-  },
+  }
 
-  fetch: function() {
+  fetch() {
     $.ajax({
       type: 'GET',
       url: app.server,
@@ -33,21 +35,23 @@ var app = {
         console.error('chatterbox: Failed to send message', data);
       }
     });  
-  },
+  }
 
-  renderMessage: function(messageObj) {
-    var username = `<p class='username'>${messageObj.username}</p>`;
-    var message = `<p>${messageObj.text}</p>`;
-    var messageContainer = `${username}${message}`;
+  renderMessage(messageObj) {
+    let username = `<p class='username'>${messageObj.username}</p>`;
+    let message = `<p>${messageObj.text}</p>`;
+    let messageContainer = `<div>${username}${message}</div>`;
     $('#chats').append(messageContainer);
-  },
+  }
 
-  clearMessages: function() {
+  clearMessages() {
     $('#chats').html('');
-  },
+  }
 
-  renderRoom: function(roomName) {
+  renderRoom(roomName) {
     $('#roomSelect').append(`<p>${roomName}</p>`);
   }
 
-};
+}
+
+let app = new App;

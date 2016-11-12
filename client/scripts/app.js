@@ -4,6 +4,7 @@ class App {
     this.friends = [];
     this.currentRoom = 'lobby';
     this.roomList = { 'lobby': 0 };
+    this.interval = 1000;
   }
 
   init() {
@@ -13,8 +14,16 @@ class App {
 
     $( '#messageForm' ).submit(function( event ) {
       app.handleSubmit($('input:text').val());
+      $('input:text').val('');
       event.preventDefault();
     });
+
+    app.fetch();
+
+  }
+
+  intervalRefresh() {
+    setTimeout(() => { app.fetch(); }, this.interval);
   }
 
   send(message) {
@@ -25,6 +34,8 @@ class App {
       contentType: 'application/json',
       success: function (data) {
         console.log('chatterbox: Message sent', data);
+        app.renderMessage(message, true);
+
       },
       error: function (data) {
         console.error('chatterbox: Failed to send message', data);
@@ -35,15 +46,19 @@ class App {
   fetch() {
     $.ajax({
       type: 'GET',
-      url: this.server,
+      url: app.server,
       contentType: 'application/json',
-      data: {'order': '-createdAt'},
+      data: {'order': '-createdAt', 'group': this.currentRoom},
       success: function (data) {
         app.clearMessages();
         console.log('chatterbox: Messages received');
-        for (let i = data.results.length - 1; i >= 0; i--) {
+        for (let i = 0; i < data.results.length; i++) {
           app.renderMessage(data.results[i]);
         }
+      },
+      complete: function (data) {
+        // Schedule the next
+        app.intervalRefresh();
       },
       error: function (data) {
         console.error('chatterbox: Failed to send message', data);
@@ -51,12 +66,27 @@ class App {
     });  
   }
 
-  renderMessage(messageObj) {
+  renderMessage(messageObj, prepend) {
+    if (messageObj.username) {
+      messageObj.username = messageObj.username.replace(/<(.*?)>/g, '<i class="fa fa-thumbs-o-down" aria-hidden="true"></i>');
+    }
+    if (messageObj.text) {
+      messageObj.text = messageObj.text.replace(/<(.*?)>/g, '<i class="fa fa-thumbs-o-down" aria-hidden="true"></i>');
+    }
+    if (messageObj.createdAt === undefined) {
+      messageObj.createdAt = 'now';
+    }
+
     let username = `<p class='username'>${messageObj.username}</p>`;
     let timeCreated = `<p class='time'>${messageObj.createdAt}</p>`;
     let message = `<p>${messageObj.text}</p>`;
     let messageContainer = `<div class="messageContainer">${username}${timeCreated}${message}</div>`;
-    $('#chats').append(messageContainer);
+    if (prepend) {
+      $('#chats').prepend(messageContainer);
+    } else {
+      $('#chats').append(messageContainer);
+    }
+    
   }
 
   clearMessages() {

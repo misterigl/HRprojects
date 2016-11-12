@@ -36,8 +36,10 @@ var app = {
   },
 
   renderMessage: function(messageObj) {
-    var message = `<p>${messageObj.username} says ${messageObj.text}</p>`;
-    $('#chats').append(message);
+    var username = `<p class='username'>${messageObj.username}</p>`;
+    var message = `<p>${messageObj.text}</p>`;
+    var messageContainer = `${username}${message}`;
+    $('#chats').append(messageContainer);
   },
 
   clearMessages: function() {

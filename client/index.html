@@ -19,16 +19,22 @@
       }
     </script>
     <!-- your scripts -->
-    <script src="env/config.js"></script>
-    <script src="scripts/app.js"></script>
   </head>
   <body>
     <div id="main">
       <h1>chatterbox</h1>
       <!-- Your HTML goes here! -->
       <button type="button" onclick="app.fetch()">load messages</button>
+      <form id="messageForm" action="#">
+        <p>Message:</p>
+        <input id="message" type="text" value="">
+        <br>
+        <input id="send" class="submit" type="submit" value="Submit">
+      </form>
     </div>
     <div id="roomSelect"></div>
     <div id="chats"></div>
+    <script src="env/config.js"></script>
+    <script src="scripts/app.js"></script>
   </body>
 </html>

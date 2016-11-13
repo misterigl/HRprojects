@@ -18,8 +18,15 @@ class App {
       event.preventDefault();
     });
 
+    $('body').on('click', '.dropdown-menu li > .roomSelectorName', function(event) {
+      app.currentRoom = $(this).text();
+      $('#roomButton').html(app.currentRoom);
+    });
+    $('body').on('click', '.messageContainer .username', function() {
+      app.friends.push($(this).text());
+      console.log($(this).text(), 'added to friends list');
+    });
     app.fetch();
-
   }
 
   intervalRefresh() {
@@ -51,9 +58,18 @@ class App {
       data: {'order': '-createdAt', 'group': this.currentRoom},
       success: function (data) {
         app.clearMessages();
-        console.log('chatterbox: Messages received');
         for (let i = 0; i < data.results.length; i++) {
-          app.renderMessage(data.results[i]);
+          if (data.results[i].roomname === app.currentRoom) {
+            app.renderMessage(data.results[i]); 
+          }
+          if (app.roomList[data.results[i].roomname] === undefined) {
+            app.roomList[data.results[i].roomname] = 1;
+          } else {
+            app.roomList[data.results[i].roomname]++;
+          }
+        }
+        for (var room in app.roomList) {
+          app.renderRoom(room, app.roomList[room]);
         }
       },
       complete: function (data) {
@@ -75,12 +91,18 @@ class App {
     }
     if (messageObj.createdAt === undefined) {
       messageObj.createdAt = 'now';
+    } else {
+      messageObj.createdAt = new Date(messageObj.createdAt);
     }
-
-    let username = `<p class='username'>${messageObj.username}</p>`;
+    let username = '';
+    if (app.friends.includes(messageObj.username)) {
+      username = `<p class='username' style='font-weight:bold;' >${messageObj.username}</p>`;
+    } else {
+      username = `<p class='username'>${messageObj.username}</p>`;
+    }
     let timeCreated = `<p class='time'>${messageObj.createdAt}</p>`;
     let message = `<p>${messageObj.text}</p>`;
-    let messageContainer = `<div class="messageContainer">${username}${timeCreated}${message}</div>`;
+    let messageContainer = `<div class="messageContainer ${messageObj.roomname}">${username}${timeCreated}${message}</div>`;
     if (prepend) {
       $('#chats').prepend(messageContainer);
     } else {
@@ -91,10 +113,12 @@ class App {
 
   clearMessages() {
     $('#chats').html('');
+    app.roomList = {};
+    $('#roomSelect').html('').append('<li>Lobby</li><li role="separator" class="divider"></li>');
   }
 
-  renderRoom(roomName) {
-    $('#roomSelect').append(`<p>${roomName}</p>`);
+  renderRoom(roomName, messageCount) {
+    $('#roomSelect').append(`<li class="roomSelector"><span class="roomSelectorName">${roomName}</span> (${messageCount})</li>`);
   }
 
   handleUsernameClick(userName) {

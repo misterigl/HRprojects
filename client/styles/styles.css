@@ -92,3 +92,16 @@ form input[type=text] {
     outline: 1px solid pink;
 }
 
+.roomSelector:hover {
+    color: grey;
+}
+
+.dropdown-menu li {
+    cursor: pointer;
+}
+
+.username:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+

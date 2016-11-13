@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8">
@@ -29,23 +29,20 @@
     <div id="main">
       <h1>chatterbox</h1>
       <!-- Your HTML goes here! -->
-      <button class="btn btn-primary" type="button" onclick="app.fetch()">load messages</button>
       <div class="dropdown">
         <!-- Single button -->
         <div class="btn-group">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Action <span class="caret"></span>
+          <button id="roomButton" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Rooms <span class="caret"></span>
           </button>
           <ul class="dropdown-menu" id="roomSelect">
-            <li><a href="#">Lobby</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">TestRoom</a></li>
+
           </ul>
         </div>
       </div>
       <form id="messageForm" action="#">
         <p>Message:</p>
-        <input id="message" type="text" value="">
+        <input id="message" class="form-control" placeholder="Say Something..." type="text" value="">
         <br>
         <input id="send" class="submit btn btn-primary" type="submit" value="Submit">
       </form>

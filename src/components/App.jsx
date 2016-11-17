@@ -2,14 +2,21 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
+    var exists = !!Object.keys(this.props.searchYouTube).length;
     this.state = {
-      list: this.props.searchYouTube,
-      currentVideo: this.props.searchYouTube[0]
+      list: exists ? this.props.searchYouTube : exampleVideoData,
+      currentVideo: exists ? this.props.searchYouTube[0] : exampleVideoData[0]
+    };
+    this.handlers = {
+      onVLEClick: () => {
+        console.log('got clicked?', this.state, arguments);
+        // this.setState({currentVideo: props.video});
+      }
     };
   }
+  
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <Nav />
@@ -17,7 +24,7 @@ class App extends React.Component {
           <VideoPlayer video={this.state.currentVideo} />
         </div>
         <div className="col-md-5">
-          <VideoList videos={this.state.list} />
+          <VideoList videos={this.state.list} callbacks={this.handlers} />
         </div>
       </div>
     );

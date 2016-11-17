@@ -1,6 +1,6 @@
 var VideoList = (props) => (
   <div className="video-list media">
-    {props.videos.map(obj => <VideoListEntry video={obj} />)}
+    {props.videos.map(obj => <VideoListEntry video={obj} callbacks={props.callbacks} />)}
   </div>
 );
 

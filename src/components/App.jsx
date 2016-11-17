@@ -7,14 +7,13 @@ class App extends React.Component {
       list: exists ? this.props.searchYouTube : exampleVideoData,
       currentVideo: exists ? this.props.searchYouTube[0] : exampleVideoData[0]
     };
+    
     this.handlers = {
-      onVLEClick: () => {
-        console.log('got clicked?', this.state, arguments);
-        // this.setState({currentVideo: props.video});
+      onVLEClick: (event) => {
+        this.setState({currentVideo: props.searchYouTube.filter(function(obj) { return obj.id.videoId === event.target.id; })[0]});
       }
     };
   }
-  
 
   render() {
     return (

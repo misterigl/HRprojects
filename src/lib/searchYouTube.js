@@ -1,5 +1,5 @@
 var searchYouTube = (options, callback) => {
-  // TODO
+  return exampleVideoData;
 };
 
 window.searchYouTube = searchYouTube;

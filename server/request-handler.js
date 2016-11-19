@@ -118,7 +118,7 @@ var requestHandler = function(request, response) {
         console.log(requestBody);
         var message = JSON.parse(requestBody);
 
-        message.createdAt = '2009-06-15T13:45:30Z'; //new Date().toString();
+        message.createdAt = new Date().getTime();
         message.objectId = ~~(Math.random() * 100000000);
         message.roomname = response.roomname || 'lobby';
         // message.username = response.username;

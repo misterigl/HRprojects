@@ -124,14 +124,15 @@ App.prototype.renderRoom = function(room) {
 };
 
 App.prototype.parseTime = function(time) {
-  var displayTime = time.split(/[-T:.]/);
-  var [year, month, day, hour, minute, second] = displayTime;
-  var ampm = (hour > 11 && hour < 24) ? 'PM' : 'AM';
-  var hour = hour > 12 ? hour - 12 : hour;
-  var time = hour + ':' + minute + ampm;
-  var months = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
-  var result = months[month - 1] + ' ' + day + ', ' + year + ' ' + time;
-  return result;
+  var dateString = new Date(time).toLocaleString();
+  // var displayTime = time.split(/[-T:.]/);
+  // var [year, month, day, hour, minute, second] = displayTime;
+  // var ampm = (hour > 11 && hour < 24) ? 'PM' : 'AM';
+  // var hour = hour > 12 ? hour - 12 : hour;
+  // var time = hour + ':' + minute + ampm;
+  // var months = ['Jan', 'Feb', 'March', 'April', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+  // var result = months[month - 1] + ' ' + day + ', ' + year + ' ' + time;
+  return dateString;
 };
 
 App.prototype.filterRooms = function(room) {

@@ -19,6 +19,8 @@ var defaultCorsHeaders = {
   'access-control-max-age': 10 // Seconds.
 };
 
+var messages = [];
+
 var requestHandler = function(request, response) {
   
   console.log('Serving request type ' + request.method + ' for url ' + request.url);
@@ -28,25 +30,35 @@ var requestHandler = function(request, response) {
 
   if (request.method === 'GET') {
     if (request.url === '/classes/messages') {
-      response.writeHead(200, headers);
-      response.end(JSON.stringify({results: []}));
+      response.writeHead(200, {headers});
+      console.log(messages);
+      response.end(JSON.stringify({results: messages}));
+    } else {
+      response.writeHead(404, headers);
+      response.end('sorry, try somewhere else');
     }
   } else if (request.method === 'POST') {
     if (request.url === '/classes/messages') {
+
       var requestBody = '';
       response.writeHead(201, headers);
-      response.on('data', function(data) {
+      request.on('data', function(data) {
         requestBody += data;
       });
-      response.on('end', function() {
+      request.on('end', function() {
+        messages.push(JSON.parse(requestBody));
         console.log(requestBody);
       });
-      console.log('data received', requestBody);
-      response.end();
+
+      // console.log("We are at the end. Data is:", response.on);
+      response.end(JSON.stringify({results: messages}));
     } 
 
+  } else if (request.method === 'OPTIONS') {
+    response.writeHead(200, headers);
+    response.end();
   } else {
-    response.writeHead(405, 'Method Not Supported', headers);
+    response.writeHead(405, 'Operation not available', headers);
     return response.end('empty');
   }
 
@@ -54,5 +66,5 @@ var requestHandler = function(request, response) {
 
 
 
-module.exports = requestHandler;
+module.exports.requestHandler = requestHandler;
 

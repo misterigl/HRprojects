@@ -18,8 +18,31 @@ var defaultCorsHeaders = {
   'access-control-allow-headers': 'content-type, accept',
   'access-control-max-age': 10 // Seconds.
 };
-
-var messages = [];
+var time = '2009-06-15T13:45:30Z'; //new Date().getTime();
+console.log(time);
+var messages = []; 
+/*[{
+  createdAt: time,
+  objectId: '1',
+  roomname: 'lobby',
+  updatedAt: 'yesterday',
+  username: 'Jono',
+  text: 'Do my bidding!'
+}, {
+  username: 'Jarob',
+  text: 'No!',
+  createdAt: time,
+  objectId: '2',
+  roomname: 'lobby',
+  updatedAt: 'yesterday'
+}, {
+  username: 'Michael',
+  text: "Y'all crazy!",
+  createdAt: time,
+  objectId: '3',
+  roomname: 'lobby',
+  updatedAt: 'yesterday'
+}]; */
 
 var requestHandler = function(request, response) {
   
@@ -30,8 +53,7 @@ var requestHandler = function(request, response) {
 
   if (request.method === 'GET') {
     if (request.url === '/classes/messages') {
-      response.writeHead(200, {headers});
-      console.log(messages);
+      response.writeHead(200, headers);
       response.end(JSON.stringify({results: messages}));
     } else {
       response.writeHead(404, headers);
@@ -46,8 +68,16 @@ var requestHandler = function(request, response) {
         requestBody += data;
       });
       request.on('end', function() {
-        messages.push(JSON.parse(requestBody));
         console.log(requestBody);
+        var message = JSON.parse(requestBody);
+
+        message.createdAt = '2009-06-15T13:45:30Z'; //new Date().toString();
+        message.objectId = ~~(Math.random() * 100000000);
+        message.roomname = response.roomname || 'lobby';
+        // message.username = response.username;
+        message.updatedAt = message.createdAt;
+
+        messages.push(message);
       });
 
       // console.log("We are at the end. Data is:", response.on);

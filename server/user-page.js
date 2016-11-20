@@ -37,7 +37,7 @@ var generateHTML = function(userObj) {
   return response;
 };
 
-app.use(express.static('fakebook'));
+app.use(express.static('../fakebook'));
 app.use(bodyParser.json());
 
 app.route('/users')

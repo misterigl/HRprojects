@@ -11,22 +11,29 @@ describe('VideoListEntry', function() {
   // Wrapper.jsx defined a Wrapper component to use in our tests.
   // Read more here: https://github.com/facebook/react/issues/4972
 
+  //added function object to update tests
+  var handlers = {
+    onVLEClick: (event) => {
+      return null;
+    }
+  };
+
   beforeEach(function() {
     cuteCatVideo = renderIntoDocument(
       <Wrapper>
-        <VideoListEntry video={window.fakeVideoData[0]} />
+        <VideoListEntry video={window.fakeVideoData[0]} callbacks={handlers} />
       </Wrapper>
     );
 
     superCuteCatVideo = renderIntoDocument(
       <Wrapper>
-        <VideoListEntry video={window.fakeVideoData[1]} />
+        <VideoListEntry video={window.fakeVideoData[1]} callbacks={handlers} />
       </Wrapper>
     );
 
     hackReactorVideo = renderIntoDocument(
       <Wrapper>
-        <VideoListEntry video={window.fakeVideoData[2]} />
+        <VideoListEntry video={window.fakeVideoData[2]} callbacks={handlers} />
       </Wrapper>
     );
   });

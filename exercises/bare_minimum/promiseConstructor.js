@@ -5,17 +5,27 @@
  */
 
 var fs = require('fs');
-var request = require('request');
 var Promise = require('bluebird');
+Promise.promisifyAll(fs);
+var request = Promise.promisify(require('request'));
+Promise.promisifyAll(request);
+// Now you can use fs as if it was designed to use bluebird promises from the beginning
+
 
 // This function should retrieve the first line of the file at `filePath`
 var pluckFirstLineFromFileAsync = function(filePath) {
-  // TODO
+  // var promise = Promise(fs.readFile)
+  return fs.readFileAsync(filePath, 'utf8').then(function(file) {
+    return file.slice(0, file.indexOf('\n'));
+  });
+
 };
 
 // This function should retrieve the status code of a GET request to `url`
 var getStatusCodeAsync = function(url) {
-  // TODO
+  return request(url).then(function (response) {
+    return response.statusCode;
+  });
 };
 
 // Export these functions so we can test them and reuse them in later exercises
@@ -23,3 +33,7 @@ module.exports = {
   getStatusCodeAsync: getStatusCodeAsync,
   pluckFirstLineFromFileAsync: pluckFirstLineFromFileAsync
 };
+
+// request(url, function (error, response, body) {
+//     !error ? callback(error, response.statusCode) : callback(error);
+//   });

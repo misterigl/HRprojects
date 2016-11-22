@@ -55,4 +55,12 @@ exports.isUrlArchived = function(url, callback) {
 };
 
 exports.downloadUrls = function() {
+
+};
+
+exports.readFile = function(loc) {
+  fs.readFileAsync(loc, function read(err, data) {
+    if (err) { throw err; }
+    return data.toString('utf8');
+  });
 };

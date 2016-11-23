@@ -13,8 +13,8 @@ var http = require('http');
 
 exports.paths = {
   siteAssets: path.join(__dirname, '../web/public'),
-  archivedSites: path.join(__dirname, '../archives/sites'),
-  list: path.join(__dirname, '../archives/sites.txt')
+  archivedSites: path.join(__dirname, '../web/archives/sites'),
+  list: path.join(__dirname, '../web/archives/sites.txt')
 };
 
 // Used for stubbing paths for tests, do not modify
@@ -55,7 +55,8 @@ exports.isUrlArchived = function(url, callback) {
 };
 
 exports.downloadUrls = function(urlArray) {
-  urlArray.forEach((url) => {
+  _.forEach(urlArray, (url) => {
+    console.log('downloading ', url);
     http.get({
       host: url
       // path: '/user'
@@ -65,6 +66,7 @@ exports.downloadUrls = function(urlArray) {
         body += d;
       });
       response.on('end', function() {
+        console.log('writting ', url);        
         fs.writeFile(exports.paths.archivedSites + '/' + url, body); 
       });
     });

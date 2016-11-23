@@ -15,6 +15,8 @@ exports.handleRequest = function (req, res) {
     var loc;
     var url = req.url.slice(1);
     var fileLoc = {
+      'client.js': '/client.js',
+      'loading.html': '/loading.html',
       'index.html': '/index.html',
       'styles.css': '/styles.css',
       'favicon.ico': '/favicon.ico'
@@ -48,8 +50,9 @@ exports.handleRequest = function (req, res) {
     }).on('end', function() {
       var url = body.slice(4);
       if (!archive.isUrlInList(url, stdCB)) {
-        res.writeHead(302);
+        res.writeHead(302, {location: '/loading.html'});
         archive.addUrlToList(url + '\n', stdCB);
+        // res.location('/loading.html');
         res.end();
       }
     });

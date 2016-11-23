@@ -14,25 +14,31 @@ exports.handleRequest = function (req, res) {
     if (req.url === '/') { req.url = req.url + 'index.html'; }
     var loc;
     var url = req.url.slice(1);
-    var stdCB = (exists) => exists;
+    var stdCB = (exists) => { return exists; };
     var fileLoc = {
       'index.html': '/index.html',
       'styles.css': '/styles.css',
       'favicon.ico': '/favicon.ico'
     };
     if (fileLoc.hasOwnProperty(url)) {
+      console.log('serving static files');
       loc = path.join(archive.paths.siteAssets, fileLoc[url]);
-      fs.readFile(loc, 'utf8', function read(err, data) {
+      fs.readFile(loc, 'utf8', function (err, data) {
         if (err) { throw err; }
         res.writeHead(200);
         res.end(data);
       });
-    } else if (archive.isUrlInList(url, stdCB)) {
-      if (archive.isUrlArchived(url, stdCB)) {
-
-      }
+    } else {
+      archive.isUrlArchived(url, function(exits) {
+        if (exits) {
+          res.writeHead(200);
+          archive.readFile(archive.paths.archivedSites + '/' + url, res.end(content));
+        }
+      }); // else if (archive.isUrlInList(url, stdCB)) {
     }
+    //}
   }
+};
 
 
 
@@ -92,6 +98,6 @@ exports.handleRequest = function (req, res) {
   // } else {
 
   // }
-};
+// };
 
 // archive.paths.list

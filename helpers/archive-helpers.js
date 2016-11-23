@@ -3,7 +3,7 @@ var path = require('path');
 var _ = require('underscore');
 var Promise = require('bluebird');
 Promise.promisifyAll(fs);
-
+var http = require('http');
 /*
  * You will need to reuse the same paths many times over in the course of this sprint.
  * Consider using the `paths` object below to store frequently used file paths. This way,
@@ -54,13 +54,27 @@ exports.isUrlArchived = function(url, callback) {
   });
 };
 
-exports.downloadUrls = function() {
-
+exports.downloadUrls = function(urlArray) {
+  urlArray.forEach((url) => {
+    http.get({
+      host: url
+      // path: '/user'
+    }, function(response) {
+      var body = '';
+      response.on('data', function(d) {
+        body += d;
+      });
+      response.on('end', function() {
+        fs.writeFile(exports.paths.archivedSites + '/' + url, body); 
+      });
+    });
+  });
 };
 
-exports.readFile = function(loc) {
-  fs.readFileAsync(loc, function read(err, data) {
+exports.readFile = function(loc, callback) {
+  fs.readFile(loc, function read(err, data) {
+    console.log('readFile');
     if (err) { throw err; }
-    return data.toString('utf8');
+    return callback(data.toString('utf8'));
   });
 };

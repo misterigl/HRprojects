@@ -9,12 +9,11 @@ var siteList = '';
 var content = '';
 
 exports.handleRequest = function (req, res) {
-
+  var stdCB = (exists) => { return exists; };
   if (req.method === 'GET') {
     if (req.url === '/') { req.url = req.url + 'index.html'; }
     var loc;
     var url = req.url.slice(1);
-    var stdCB = (exists) => { return exists; };
     var fileLoc = {
       'index.html': '/index.html',
       'styles.css': '/styles.css',
@@ -29,14 +28,32 @@ exports.handleRequest = function (req, res) {
         res.end(data);
       });
     } else {
-      archive.isUrlArchived(url, function(exits) {
-        if (exits) {
+      archive.isUrlArchived(url, function(exists) {
+        if (exists) {
           res.writeHead(200);
-          archive.readFile(archive.paths.archivedSites + '/' + url, res.end(content));
+          archive.readFile(archive.paths.archivedSites + '/' + url, function(data) {
+            res.end(data);
+          });
+        } else {
+          res.writeHead(404);
+          res.end();
         }
       }); // else if (archive.isUrlInList(url, stdCB)) {
-    }
+    } 
     //}
+  } else if (req.method === 'POST') {
+    var body = '';
+    req.on('data', function(chunk) {
+      body += chunk;
+    }).on('end', function() {
+      var url = body.slice(4);
+      if (!archive.isUrlInList(url, stdCB)) {
+        res.writeHead(302);
+        archive.addUrlToList(url + '\n', stdCB);
+        res.end();
+      }
+    });
+    
   }
 };
 

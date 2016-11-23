@@ -73,7 +73,6 @@ exports.downloadUrls = function(urlArray) {
 
 exports.readFile = function(loc, callback) {
   fs.readFile(loc, function read(err, data) {
-    console.log('readFile');
     if (err) { throw err; }
     return callback(data.toString('utf8'));
   });

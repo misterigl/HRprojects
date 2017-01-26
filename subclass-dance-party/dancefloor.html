@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Object Dance Party</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="lib/jquery.js"></script>
+    <script src="http://code.jquery.com/ui/1.12.0/jquery-ui.js"></script>
+    <script src="src/dancer.js"></script>
+    <script src="src/blinkyDancer.js"></script>
+    <script src="src/faceDancer.js"></script>
+    <script src="src/movingDancer.js"></script>
+    <script src="src/makeStationaryDancer.js"></script>
+    <script src="src/danceActions.js"></script>
+  </head>
+  <body>
+    <div class="topbar">
+      <span class="title">D.A.N.C.E</span>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeStationaryDancer">add a stationary dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeBlinkyDancer">add a blinky dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeFaceDancer">add a face dancer</a>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="makeMovingDancer">add a moving dancer</a>
+      <a href="#" class="actionButton" data-action-button-name="lineUp">Line Up!</a>
+    </div>
+    <script src="src/init.js"></script>
+  </body>
+</html>

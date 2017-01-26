@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ## API keys
 client/env/config.js
@@ -8,12 +9,18 @@ client/env/config.js
 >>>>>>> 9f9d554ae9a6a43497f0670ba53b9a611ad3d7a1
 ###OSX###
 
+=======
+### OSX ###
+>>>>>>> cbf483337673efa484ab3000ac3af2b87e6338e4
 .DS_Store
 .AppleDouble
 .LSOverride
 Icon
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> cbf483337673efa484ab3000ac3af2b87e6338e4
 # Thumbnails
 ._*
 
@@ -22,8 +29,12 @@ Icon
 .Trashes
 
 
+<<<<<<< HEAD
 ###Node###
 
+=======
+### Node ###
+>>>>>>> cbf483337673efa484ab3000ac3af2b87e6338e4
 lib-cov
 *.seed
 *.log
@@ -37,6 +48,7 @@ pids
 logs
 results
 
+<<<<<<< HEAD
 npm-debug.log
 node_modules
 <<<<<<< HEAD
@@ -148,12 +160,27 @@ client/bower_components
 *.vob
 *.wmv
 >>>>>>> 9f9d554ae9a6a43497f0670ba53b9a611ad3d7a1
+=======
+
+### NPM ###
+npm-debug.log
+node_modules
+
+
+### Bower ###
+**/bower_components/
+
+
+### PhPStorm ###
+.idea/
+>>>>>>> cbf483337673efa484ab3000ac3af2b87e6338e4
 
 # Floobits
 .floo
 .floobit
 .floo
 .flooignore
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -167,3 +194,9 @@ client/bower_components
 >>>>>>> 841d8624238ef7653e78b4b89cc8c1bbae519928
 =======
 >>>>>>> 9f9d554ae9a6a43497f0670ba53b9a611ad3d7a1
+=======
+
+## API keys
+client/env/config.js
+client/env/config.example.js
+>>>>>>> cbf483337673efa484ab3000ac3af2b87e6338e4

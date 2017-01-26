@@ -1,5 +1,11 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+## API keys
+client/env/config.js
+
+>>>>>>> 9f9d554ae9a6a43497f0670ba53b9a611ad3d7a1
 ###OSX###
 
 .DS_Store
@@ -33,6 +39,7 @@ results
 
 npm-debug.log
 node_modules
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 >>>>>>> 2a564c9174e915573cb4e566ae8b70731544e93d
@@ -75,10 +82,13 @@ bower_components/
 <<<<<<< HEAD
 .DS_Store
 =======
+=======
+>>>>>>> 9f9d554ae9a6a43497f0670ba53b9a611ad3d7a1
 
 ###PhPStorm###
 
 .idea/
+<<<<<<< HEAD
 >>>>>>> ac5cdee90c9c23fe88bac6502e1fb11c70aa8529
 =======
 lib/
@@ -95,12 +105,56 @@ node_modules
 # bower dependencies
 bower_components
 >>>>>>> 841d8624238ef7653e78b4b89cc8c1bbae519928
+=======
+
+###SublimeText###
+
+# SublimeText project files
+*.sublime-workspace
+
+# bower
+client/bower_components
+
+# audio
+*.aif
+*.iff
+*.m3u
+*.m4a
+*.mid
+*.mp3
+*.mpa
+*.ra
+*.wav
+*.wma
+*.ram
+*.rm
+*.aac
+
+
+# video
+*.3g2
+*.3gp
+*.asf
+*.asx
+*.avi
+*.flv
+*.m4v
+*.mov
+*.mp4
+*.mpg
+*.rm
+*.srt
+*.swf
+*.vob
+*.wmv
+>>>>>>> 9f9d554ae9a6a43497f0670ba53b9a611ad3d7a1
 
 # Floobits
 .floo
 .floobit
 .floo
 .flooignore
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -111,3 +165,5 @@ bower_components
 >>>>>>> 2a564c9174e915573cb4e566ae8b70731544e93d
 =======
 >>>>>>> 841d8624238ef7653e78b4b89cc8c1bbae519928
+=======
+>>>>>>> 9f9d554ae9a6a43497f0670ba53b9a611ad3d7a1

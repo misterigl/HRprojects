@@ -3,6 +3,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ## API keys
 client/env/config.js
@@ -217,3 +218,17 @@ client/env/config.example.js
 >>>>>>> cbf483337673efa484ab3000ac3af2b87e6338e4
 =======
 >>>>>>> 455e2914ee2cc70acde3a3f76a0eacf06d0676aa
+=======
+## Mac OSX ##
+.DS_Store
+
+## NPM ##
+node_modules/
+
+## Compiled files ##
+compiled/
+
+## API keys ##
+src/config/youtube.js
+compiled/config/youtube.js
+>>>>>>> 3e4c97246b8851eef0646086eb99f56bff075a5d

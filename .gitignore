@@ -31,7 +31,6 @@ results
 
 npm-debug.log
 node_modules
-=======
 ### node etc ###
 
 # Logs
@@ -61,6 +60,7 @@ dist/
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules/
 bower_components/
+.DS_Store
 
 # Floobits
 .floo

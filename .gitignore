@@ -2,6 +2,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ## API keys
 client/env/config.js
@@ -12,15 +13,21 @@ client/env/config.js
 =======
 ### OSX ###
 >>>>>>> cbf483337673efa484ab3000ac3af2b87e6338e4
+=======
+### OSX ###
+>>>>>>> 455e2914ee2cc70acde3a3f76a0eacf06d0676aa
 .DS_Store
 .AppleDouble
 .LSOverride
 Icon
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> cbf483337673efa484ab3000ac3af2b87e6338e4
+=======
+>>>>>>> 455e2914ee2cc70acde3a3f76a0eacf06d0676aa
 # Thumbnails
 ._*
 
@@ -30,11 +37,15 @@ Icon
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ###Node###
 
 =======
 ### Node ###
 >>>>>>> cbf483337673efa484ab3000ac3af2b87e6338e4
+=======
+### Node ###
+>>>>>>> 455e2914ee2cc70acde3a3f76a0eacf06d0676aa
 lib-cov
 *.seed
 *.log
@@ -48,6 +59,7 @@ pids
 logs
 results
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 npm-debug.log
 node_modules
@@ -161,6 +173,8 @@ client/bower_components
 *.wmv
 >>>>>>> 9f9d554ae9a6a43497f0670ba53b9a611ad3d7a1
 =======
+=======
+>>>>>>> 455e2914ee2cc70acde3a3f76a0eacf06d0676aa
 
 ### NPM ###
 npm-debug.log
@@ -173,6 +187,7 @@ node_modules
 
 ### PhPStorm ###
 .idea/
+<<<<<<< HEAD
 >>>>>>> cbf483337673efa484ab3000ac3af2b87e6338e4
 
 # Floobits
@@ -200,3 +215,5 @@ node_modules
 client/env/config.js
 client/env/config.example.js
 >>>>>>> cbf483337673efa484ab3000ac3af2b87e6338e4
+=======
+>>>>>>> 455e2914ee2cc70acde3a3f76a0eacf06d0676aa

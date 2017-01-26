@@ -1,0 +1,232 @@
+body {
+    background: url('../images/concrete_seamless.png');
+ 
+    text-align: center;
+    padding: 0 25px;
+    font-family: “Century Gothic”, CenturyGothic, AppleGothic, sans-serif;
+    font-weight: lighter;
+}
+
+#main, #chats {
+    width: 500px;
+    margin: auto;
+    text-align: left;
+    background: white;
+    padding: 50px 60px;
+    border: solid #ddd;
+    border-width: 0 1px 1px 1px;
+}
+
+#main h1 {
+    margin-top: 0;
+    font-size: 50px;
+    margin-bottom: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
+#main h1 img {
+    width: 300px;
+}
+
+#main h1 span {
+
+    font-style:italic;
+}
+
+#main ul {
+    padding-left: 20px;
+}
+
+#main .error {
+    border: 1px solid red;
+    background: #FDEFF0;
+    padding: 20px;
+}
+
+#main .success {
+    margin-top: 25px;
+}
+
+#main .success code {
+    font-size: 12px;
+    color: green;
+    line-height: 13px;
+}
+
+form {
+    padding: 20px;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+form input[type=text] {
+    margin-right: 10px;
+    width: 70%;
+    font-size: 12px;
+    padding: 5px;
+}
+
+.chat {
+    padding: 5px;
+    margin-bottom: 5px;
+    background-color: #eee;
+}
+
+.chat .username {
+    font-weight: 800;
+}
+
+.chat:hover {
+    background-color: #ddd;
+}
+
+.spinner {
+    float: right;
+    height: 46px;
+    margin-bottom: 5px;
+}
+
+.spinner img {
+    padding: 10px;
+}
+
+.friend {
+    color: #fff;
+    background-color: #0090da;
+}
+
+.message {
+    border: 2px solid #BBBBBB;
+    border-radius: 10px;
+    margin: 4px;
+    padding: 10px;
+}
+
+.messageHead {
+    white-space: nowrap;
+}
+
+.username {
+    color: #3F7EA6;
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+.username:hover {
+    text-decoration: underline;
+    color: #023059;
+    cursor: pointer;
+}
+
+.roomname {
+    float: right;
+    font-size: 10px;
+    color: #BBBBBB;
+    overflow: hidden;
+    text-align: right;
+    display: inline-block;
+    width: 100px;
+}
+
+.messageText {
+    padding-left: 25px;
+    word-wrap: break-word;
+    max-height: 100px;
+    overflow: hidden;
+}
+
+.messageTime {
+    font-size: 10px;
+    text-align: right;
+    color: #BF5E0A;
+}
+
+#roomSelect {
+    width: 80px;
+}
+
+.postArea {
+    margin-top: 40px;
+    width: 100%;
+    height: 6em;
+}
+
+button {
+    border: none;
+    border-radius: 15px;
+    color: #F2F2F2;
+    padding: 10px 20px;
+    display: table-cell;
+    font-size: 18px;
+    width: 506px;
+    margin: 4px auto;
+    text-align: center;
+    background-color: #3F7EA6;
+}
+
+button:hover {
+    background-color: #2F6E96;
+}
+
+.friendList {
+    border-radius: 10px;
+    float: right;
+    height: 300px;
+    width: 250px;
+    /*overflow: scroll;*/
+    background-color: white;
+}
+
+.friendsTitle {
+    color: #BF5E0A;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 2px solid #BF5E0A;
+    padding: 7px 0px;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.friendsContainer {
+    border-radius: 10px;
+    overflow: auto;
+    max-height: 255px;
+}
+
+.friendsContainer:hover {
+    border-radius: 10px;
+    overflow: auto;
+    max-height: 255px;
+}
+
+.friendsContainer h4:hover {
+    background-color: #ddd;
+}
+
+.friendsContainer h4{
+    margin: 2px;
+    padding: 5px;
+}
+
+.ticker {
+    color: white;
+    float: left;
+}
+
+.ticker:hover {
+    float: left;
+    color: #BF5E0A;
+    cursor: pointer;
+}
+
+
+/*Black = Black;
+DarkGrey = #222222;
+LightGrey = #BBBBBB;
+DarkBlue = #023059;
+LightBlue = #3F7EA6;
+White = #F2F2F2;
+Yella = #D99E32;
+DarkOrange = #BF5E0A;*/
+

@@ -1,0 +1,36 @@
+@import url("main.css");
+
+.container {
+	display: flex;
+  flex-wrap: wrap;
+}
+
+h1 {
+  border-bottom: 4px solid black;
+}
+
+.body {
+  margin: 20px;
+  display: block; 
+  flex-grow: 1; 
+}
+
+a:hover {
+  color: #0E1061;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+a {
+  color:#00aced;
+  cursor: pointer;
+}
+
+.message {
+  font-size:20px;
+}
+
+.timestamp {
+  font-size:12px;
+  float: right;
+}

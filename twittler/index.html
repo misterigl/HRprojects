@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/twittler.css">
+    
+    <script src="jquery.js"></script>
+    <script src="data_generator.js"></script>
+    <script src="moment.js"></script>
+  </head>
+  <body>
+    <div class= "container">
+        <div class="title">
+          <h1>TWITTLER</h1>
+          <h3> a HackReactor project</h3>
+        </div>
+
+        <div class="body">
+            <script>
+
+              $(document).ready(function(){
+                setInterval(function() {
+                  var $body = $('.body');
+                  $body.html('');
+
+                  var index = streams.home.length - 1;
+                  while(index >= 0){
+                    var tweet = streams.home[index];
+                    var userName = tweet.user;
+                    var $tweet = $('<div class="tweet ' + userName +'"></div>');
+                    $tweet.html('<div><a id="userlink">@' + userName +
+                    '</a>: <span class="message">' + tweet.message +
+                    "</span> <span class='timestamp'>" + moment(tweet.created_at).fromNow() + "</span</div>");
+                    $tweet.appendTo($body);
+                    index -= 1;
+                  }
+                }, 3000);
+
+                $('.body').on('click', 'a', function(){
+                
+                var userselect = $(this).text().slice(1);
+
+                for (var each in streams.users) {
+                  if (each !== userselect) {
+                    $('.'+each).hide('fast');
+                  }
+                }
+
+                });
+
+              });
+
+            </script>
+        </div>
+    
+    </div>
+  </body>
+</html>

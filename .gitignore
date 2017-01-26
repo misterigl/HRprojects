@@ -31,6 +31,7 @@ results
 
 npm-debug.log
 node_modules
+<<<<<<< HEAD
 ### node etc ###
 
 # Logs
@@ -61,6 +62,12 @@ dist/
 node_modules/
 bower_components/
 .DS_Store
+=======
+
+###PhPStorm###
+
+.idea/
+>>>>>>> ac5cdee90c9c23fe88bac6502e1fb11c70aa8529
 
 # Floobits
 .floo

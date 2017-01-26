@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 ###OSX###
 
 .DS_Store
@@ -40,6 +41,12 @@ node_modules
 # Logs
 logs
 *.log
+=======
+# Logs
+logs
+*.log
+.DS_Store
+>>>>>>> 841d8624238ef7653e78b4b89cc8c1bbae519928
 
 # Runtime data
 pids
@@ -55,6 +62,7 @@ coverage
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
+<<<<<<< HEAD
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
@@ -75,6 +83,18 @@ bower_components/
 =======
 lib/
 >>>>>>> 2a564c9174e915573cb4e566ae8b70731544e93d
+=======
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directory
+# Deployed apps should consider commenting this line out:
+# see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
+node_modules
+
+# bower dependencies
+bower_components
+>>>>>>> 841d8624238ef7653e78b4b89cc8c1bbae519928
 
 # Floobits
 .floo
@@ -82,9 +102,12 @@ lib/
 .floo
 .flooignore
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 # Swap files (for the vim users in all of us)
 /**/*.swp
 
 >>>>>>> 2a564c9174e915573cb4e566ae8b70731544e93d
+=======
+>>>>>>> 841d8624238ef7653e78b4b89cc8c1bbae519928

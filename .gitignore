@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ###OSX###
 
 .DS_Store
@@ -32,6 +33,8 @@ results
 npm-debug.log
 node_modules
 <<<<<<< HEAD
+=======
+>>>>>>> 2a564c9174e915573cb4e566ae8b70731544e93d
 ### node etc ###
 
 # Logs
@@ -61,6 +64,7 @@ dist/
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules/
 bower_components/
+<<<<<<< HEAD
 .DS_Store
 =======
 
@@ -68,9 +72,19 @@ bower_components/
 
 .idea/
 >>>>>>> ac5cdee90c9c23fe88bac6502e1fb11c70aa8529
+=======
+lib/
+>>>>>>> 2a564c9174e915573cb4e566ae8b70731544e93d
 
 # Floobits
 .floo
 .floobit
 .floo
 .flooignore
+<<<<<<< HEAD
+=======
+
+# Swap files (for the vim users in all of us)
+/**/*.swp
+
+>>>>>>> 2a564c9174e915573cb4e566ae8b70731544e93d

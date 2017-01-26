@@ -4,6 +4,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ## API keys
 client/env/config.js
@@ -232,3 +233,7 @@ compiled/
 src/config/youtube.js
 compiled/config/youtube.js
 >>>>>>> 3e4c97246b8851eef0646086eb99f56bff075a5d
+=======
+.DS_Store
+node_modules
+>>>>>>> b35401fb874d198587b2eba7d53ca4b70baa3a6e

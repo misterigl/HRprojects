@@ -5,6 +5,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ## API keys
 client/env/config.js
@@ -18,11 +19,22 @@ client/env/config.js
 =======
 ### OSX ###
 >>>>>>> 455e2914ee2cc70acde3a3f76a0eacf06d0676aa
+=======
+web/archives/*
+archives/*
+archives/*.txt
+test/testdata/sites/*
+test/testdata/sites.txt
+
+###OSX###
+
+>>>>>>> 4521296890e1cfa43b632054650a48514ad61344
 .DS_Store
 .AppleDouble
 .LSOverride
 Icon
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -33,10 +45,15 @@ Icon
 # Thumbnails
 ._*
 
+=======
+# Thumbnails
+._*
+>>>>>>> 4521296890e1cfa43b632054650a48514ad61344
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
 
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -48,6 +65,10 @@ Icon
 =======
 ### Node ###
 >>>>>>> 455e2914ee2cc70acde3a3f76a0eacf06d0676aa
+=======
+###Node###
+
+>>>>>>> 4521296890e1cfa43b632054650a48514ad61344
 lib-cov
 *.seed
 *.log
@@ -61,6 +82,7 @@ pids
 logs
 results
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 npm-debug.log
@@ -191,12 +213,17 @@ node_modules
 .idea/
 <<<<<<< HEAD
 >>>>>>> cbf483337673efa484ab3000ac3af2b87e6338e4
+=======
+npm-debug.log
+node_modules
+>>>>>>> 4521296890e1cfa43b632054650a48514ad61344
 
 # Floobits
 .floo
 .floobit
 .floo
 .flooignore
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -237,3 +264,5 @@ compiled/config/youtube.js
 .DS_Store
 node_modules
 >>>>>>> b35401fb874d198587b2eba7d53ca4b70baa3a6e
+=======
+>>>>>>> 4521296890e1cfa43b632054650a48514ad61344

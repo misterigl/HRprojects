@@ -6,6 +6,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 ## API keys
 client/env/config.js
@@ -91,17 +92,22 @@ node_modules
 <<<<<<< HEAD
 =======
 >>>>>>> 2a564c9174e915573cb4e566ae8b70731544e93d
+=======
+>>>>>>> ff869b079df9b6dd6b3cd424ea0c54f413df6197
 ### node etc ###
 
 # Logs
 logs
 *.log
+<<<<<<< HEAD
 =======
 # Logs
 logs
 *.log
 .DS_Store
 >>>>>>> 841d8624238ef7653e78b4b89cc8c1bbae519928
+=======
+>>>>>>> ff869b079df9b6dd6b3cd424ea0c54f413df6197
 
 # Runtime data
 pids
@@ -118,6 +124,9 @@ coverage
 .grunt
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> ff869b079df9b6dd6b3cd424ea0c54f413df6197
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
@@ -127,6 +136,7 @@ dist/
 # see https://npmjs.org/doc/faq.html#Should-I-check-my-node_modules-folder-into-git
 node_modules/
 bower_components/
+<<<<<<< HEAD
 <<<<<<< HEAD
 .DS_Store
 =======
@@ -217,12 +227,15 @@ node_modules
 npm-debug.log
 node_modules
 >>>>>>> 4521296890e1cfa43b632054650a48514ad61344
+=======
+>>>>>>> ff869b079df9b6dd6b3cd424ea0c54f413df6197
 
 # Floobits
 .floo
 .floobit
 .floo
 .flooignore
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -266,3 +279,5 @@ node_modules
 >>>>>>> b35401fb874d198587b2eba7d53ca4b70baa3a6e
 =======
 >>>>>>> 4521296890e1cfa43b632054650a48514ad61344
+=======
+>>>>>>> ff869b079df9b6dd6b3cd424ea0c54f413df6197
